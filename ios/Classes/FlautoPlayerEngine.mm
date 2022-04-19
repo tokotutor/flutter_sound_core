@@ -166,6 +166,7 @@
         AVAudioFormat* playerFormat;
         AVAudioFormat* outputFormat;
         AVAudioOutputNode* outputNode;
+        AVAudioConverter* converter;
         CFTimeInterval mStartPauseTime ; // The time when playback was paused
 	CFTimeInterval systemTime ; //The time when  StartPlayer() ;
         double mPauseTime ; // The number of seconds during the total Pause mode
@@ -241,6 +242,10 @@
                          }
                         [engine stop];
                         engine = nil;
+                        if (converter != nil)
+                        {
+                            converter = nil;
+                        }
                 }
        }
 
@@ -310,7 +315,10 @@
                         AVAudioPCMBuffer* thePCMOutputBuffer = [[AVAudioPCMBuffer alloc] initWithPCMFormat: outputFormat frameCapacity: frameLength];
                         thePCMOutputBuffer.frameLength = 0;
 
-                        AVAudioConverter* converter = [[AVAudioConverter alloc]initFromFormat: playerFormat toFormat: outputFormat];
+                        if (converter == nil)
+                        {
+                                converter = [[AVAudioConverter alloc]initFromFormat: playerFormat toFormat: outputFormat];
+                        }
                         NSError* error;
                         [converter convertToBuffer: thePCMOutputBuffer error: &error withInputFromBlock: inputBlock];
                          // if (r == AVAudioConverterOutputStatus_HaveData || true)
