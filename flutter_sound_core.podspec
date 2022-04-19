@@ -7,8 +7,8 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'flutter_sound_core'
-  s.version          = '8.5.0'
+  s.name             = 'flutter_sound_core_toko'
+  s.version          = '0.0.1'
   s.summary          = 'Provides simple recorder and player functionalities for both Android and iOS platforms.'
 
 # This description is used to generate tags and improve search results.
@@ -23,10 +23,10 @@ This code was originally inside the flutter_sound/ios directory.
 It has been extracted to be isolated from Flutter and can be used with other frameworks.
                        DESC
 
-  s.homepage         = 'https://github.com/dooboolab/flutter_sound'
+  s.homepage         = 'https://github.com/tokotutor/flutter_sound_core'
   s.license          = { :type => 'LGPL', :file => 'LICENSE' }
-  s.author           = { 'larpoux' => 'larpoux@gmail.com' }
-  s.source           = { :git => 'https://github.com/canardoux/flutter_sound_core.git', :tag => '' + s.version.to_s }
+  s.author           = { 'ericadu' => 'erica.c.du@gmail.com' }
+  s.source           = { :git => 'https://github.com/tokotutor/flutter_sound_core.git', :tag => '' + s.version.to_s }
 
   s.ios.deployment_target = '10.0'
 
